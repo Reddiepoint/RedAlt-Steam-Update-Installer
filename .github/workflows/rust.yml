@@ -25,14 +25,14 @@ jobs:
       - name: Build
         run: cargo build --all --release
 
-      - name: Install 7zip
-        run: choco install 7zip
+#      - name: Install 7zip
+#        run: choco install 7zip
 
       - name: Zip executable
         run: |
           cd target/release
-          7z a -mx9 RedAlt-SteamUp-Installer.zip RedAlt-SteamUp-Installer.exe
-
+#          7z a -mx9 RedAlt-SteamUp-Installer.zip RedAlt-SteamUp-Installer.exe
+          Compress-Archive RedAlt-SteamUp-Installer.exe RedAlt-SteamUp-Installer.zip
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
